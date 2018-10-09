@@ -42,6 +42,9 @@ import time
 
 import psutil
 
+name        = "R2-45"
+__version__ = "2018-10-09T2051Z"
+
 def main():
     RAM_usage_critical_final_message_sent = False
     critical_RAM_used = 97
@@ -50,6 +53,8 @@ def main():
         "firefox",
         "Popcorn-Time",
         "riot-web",
+        "signal-desktop",
+        "thunderbird",
         "evince",
         "nautilus",
         "dropbox"

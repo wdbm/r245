@@ -7,7 +7,7 @@ import setuptools
 def main():
     setuptools.setup(
         name             = "r245",
-        version          = "2018.09.26.1300",
+        version          = "2018.10.09.2051",
         description      = "kill blacklisted programs on high volatile memory usage",
         long_description = long_description(),
         url              = "https://github.com/wdbm/r245",
