@@ -6,7 +6,9 @@ R2-45 monitors overall volatile memory usage and when memory usage goes to or be
 
 # setup
 
+```Bash
 pip install r245
+```
 
 # usage
 
