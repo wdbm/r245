@@ -7,7 +7,7 @@ import setuptools
 def main():
     setuptools.setup(
         name             = "r245",
-        version          = "2018.10.09.2051",
+        version          = "2018.10.10.1639",
         description      = "kill blacklisted programs on high volatile memory usage",
         long_description = long_description(),
         url              = "https://github.com/wdbm/r245",
@@ -16,6 +16,7 @@ def main():
         license          = "GPLv3",
         packages         = setuptools.find_packages(),
         install_requires = [
+                           "docopt",
                            "psutil"
                            ],
         entry_points     = {

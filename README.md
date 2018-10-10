@@ -18,6 +18,12 @@ Just run it.
 r245
 ```
 
+You can ask it for help if you want to learn how to specify via command line options and arguments the critical RAM usage limit or a custom blacklist.
+
+```Bash
+r245 --help
+```
+
 # background reading
 
 - <https://wikileaks.org/wiki/Scientology_cult_recording:_R2-45_is_the_act_of_shooting_a_person_with_a_firearm,_20_Nov_1959>
