@@ -42,7 +42,7 @@ options:
     --version           display version and exit
     --limit=INT         critical RAM limit
                         [default: 97]
-	--rate=FLOAT        rate at which program checks running processes (seconds)
+    --rate=FLOAT        rate at which program checks running processes (seconds)
 						[default: 1]
     --blacklist=STRING  comma-separated list of blacklisted programs
                         [default: chromium,firefox,Popcorn-Time,riot-web,signal-desktop,thunderbird,evince,nautilus,dropbox,python]
