@@ -45,7 +45,7 @@ options:
     --rate=FLOAT        rate at which program checks running processes (seconds)
                         [default: 1]
     --blacklist=STRING  comma-separated list of blacklisted programs
-                        [default: chromium,firefox,Popcorn-Time,riot-web,signal-desktop,thunderbird,evince,nautilus,dropbox,python]
+                        [default: ebook-convert,pdftoppm,convert,chromium,firefox,Popcorn-Time,riot-web,signal-desktop,python,thunderbird,evince,nautilus]
 """
 
 import docopt
@@ -57,7 +57,7 @@ import time
 import psutil
 
 name        = "R2-45"
-__version__ = "2019-01-10T1548Z"
+__version__ = "2019-01-10T1606Z"
 
 def main():
     options = docopt.docopt(__doc__, version = __version__)
