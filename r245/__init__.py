@@ -42,8 +42,10 @@ options:
     --version           display version and exit
     --limit=INT         critical RAM limit
                         [default: 97]
+	--rate=FLOAT        rate at which program checks running processes (seconds)
+						[default: 1]
     --blacklist=STRING  comma-separated list of blacklisted programs
-                        [default: chromium,firefox,Popcorn-Time,riot-web,signal-desktop,thunderbird,evince,nautilus,dropbox]
+                        [default: chromium,firefox,Popcorn-Time,riot-web,signal-desktop,thunderbird,evince,nautilus,dropbox,python]
 """
 
 import docopt
@@ -55,11 +57,12 @@ import time
 import psutil
 
 name        = "R2-45"
-__version__ = "2018-10-10T1639Z"
+__version__ = "2019-01-10T1548Z"
 
 def main():
     options = docopt.docopt(__doc__, version = __version__)
     critical_RAM_used = int(options["--limit"])
+    check_frequency   = float(options["--rate"])
     blacklist         = options["--blacklist"].split(",")
     RAM_usage_critical_final_message_sent = False
     print("\nwatching memory usage and ready to kill progressively the following blacklist of programs if RAM usage >= {critical_RAM_used} %:\n\n{blacklist}\n".format(critical_RAM_used=critical_RAM_used, blacklist=", ".join(blacklist)))
@@ -81,7 +84,7 @@ def main():
                     RAM_usage_critical_final_message_sent = True
         else:
             RAM_usage_critical_final_message_sent = False
-        time.sleep(1)
+        time.sleep(check_frequency)
 
 def notify(
     text    = None,

@@ -24,6 +24,12 @@ You can ask it for help if you want to learn how to specify via command line opt
 r245 --help
 ```
 
+# example program to demonstrate large memory usage
+
+```Python
+x = bytearray(512000000)
+```
+
 # background reading
 
 - <https://wikileaks.org/wiki/Scientology_cult_recording:_R2-45_is_the_act_of_shooting_a_person_with_a_firearm,_20_Nov_1959>
