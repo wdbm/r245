@@ -14,7 +14,8 @@
 # resources. As it acts it notifies you of its actions. It knows that it is    #
 # not perfect, but it is trying.                                               #
 #                                                                              #
-# copyright (C) 2018 Will Breaden Madden, wbm@protonmail.ch                    #
+# copyright (C) 2018 Will Breaden Madden, wbm@protonmail.ch,                   #
+#                    Gavin Kirby        , clean_air_turbulence@protonmail.com  #
 #                                                                              #
 # This software is released under the terms of the GNU General Public License  #
 # version 3 (GPLv3).                                                           #
@@ -41,11 +42,11 @@ options:
     -h, --help          display help message
     --version           display version and exit
     --limit=INT         critical RAM limit
-                        [default: 97]
+                        [default: 96]
     --rate=FLOAT        rate at which program checks running processes (seconds)
-                        [default: 1]
+                        [default: 0.25]
     --blacklist=STRING  comma-separated list of blacklisted programs
-                        [default: ebook-convert,pdftoppm,convert,chromium,firefox,Popcorn-Time,riot-web,signal-desktop,python,thunderbird,evince,nautilus]
+                        [default: transmission-gtk,ebook-convert,pdftoppm,convert,chromium,firefox,Popcorn-Time,riot-web,signal-desktop,python,thunderbird,evince,nautilus]
 """
 
 import docopt
@@ -57,7 +58,7 @@ import time
 import psutil
 
 name        = "R2-45"
-__version__ = "2019-01-10T1606Z"
+__version__ = "2019-01-21T0547Z"
 
 def main():
     options = docopt.docopt(__doc__, version = __version__)

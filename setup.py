@@ -7,12 +7,12 @@ import setuptools
 def main():
     setuptools.setup(
         name             = "r245",
-        version          = "2019.01.10.1606",
+        version          = "2019.01.21.0547",
         description      = "kill blacklisted programs on high volatile memory usage",
         long_description = long_description(),
         url              = "https://github.com/wdbm/r245",
-        author           = "Will Breaden Madden",
-        author_email     = "wbm@protonmail.ch",
+        author           = "Will Breaden Madden, Gavin Kirby",
+        author_email     = "wbm@protonmail.ch, clean_air_turbulence@protonmail.com",
         license          = "GPLv3",
         packages         = setuptools.find_packages(),
         install_requires = [
