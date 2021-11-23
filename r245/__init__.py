@@ -10,7 +10,7 @@
 # LICENCE INFORMATION                                                          #
 #                                                                              #
 # This program monitors volatile memory usage and progressively kills          #
-# blacklisted programs with the goal of avoiding overuse of available          #
+# blocklisted programs with the goal of avoiding overuse of available          #
 # resources. As it acts it notifies you of its actions. It knows that it is    #
 # not perfect, but it is trying.                                               #
 #                                                                              #
@@ -45,7 +45,7 @@ options:
                         [default: 96]
     --rate=FLOAT        rate at which program checks running processes (seconds)
                         [default: 0.25]
-    --blacklist=STRING  comma-separated list of blacklisted programs
+    --blocklist=STRING  comma-separated list of blocklisted programs
                         [default: transmission-gtk,ebook-convert,pdftoppm,convert,chromium,firefox,Popcorn-Time,riot-web,signal-desktop,python,thunderbird,evince,nautilus]
 """
 
@@ -58,25 +58,25 @@ import time
 import psutil
 
 name        = "R2-45"
-__version__ = "2019-01-21T0547Z"
+__version__ = "2021-11-23T1048Z"
 
 def main():
     options = docopt.docopt(__doc__, version = __version__)
     critical_RAM_used = int(options["--limit"])
     check_frequency   = float(options["--rate"])
-    blacklist         = options["--blacklist"].split(",")
+    blocklist         = options["--blocklist"].split(",")
     RAM_usage_critical_final_message_sent = False
-    print("\nwatching memory usage and ready to kill progressively the following blacklist of programs if RAM usage >= {critical_RAM_used} %:\n\n{blacklist}\n".format(critical_RAM_used=critical_RAM_used, blacklist=", ".join(blacklist)))
+    print("\nwatching memory usage and ready to kill progressively the following blocklist of programs if RAM usage >= {critical_RAM_used} %:\n\n{blocklist}\n".format(critical_RAM_used=critical_RAM_used, blocklist=", ".join(blocklist)))
     while True:
         total_RAM_used = psutil.virtual_memory().percent
         if total_RAM_used >= critical_RAM_used:
             processes                       = [process for process in psutil.process_iter()]
             processes_by_memory             = sorted(processes, key=lambda process: process.memory_percent(), reverse=True)
-            blacklisted_processes_by_memory = [process for process in processes_by_memory if process.name() in blacklist]
-            if blacklisted_processes_by_memory:
-                process_name = blacklisted_processes_by_memory[0].name()
-                blacklisted_processes_by_memory[0].kill()
-                message = "RAM usage critical => killed blacklisted process \"{process_name}\"".format(process_name=process_name)
+            blocklisted_processes_by_memory = [process for process in processes_by_memory if process.name() in blocklist]
+            if blocklisted_processes_by_memory:
+                process_name = blocklisted_processes_by_memory[0].name()
+                blocklisted_processes_by_memory[0].kill()
+                message = "RAM usage critical => killed blocklisted process \"{process_name}\"".format(process_name=process_name)
                 print(message); notify(text=message)
             else:
                 if not RAM_usage_critical_final_message_sent:

@@ -7,7 +7,7 @@ import setuptools
 def main():
     setuptools.setup(
         name             = "r245",
-        version          = "2019.01.21.0547",
+        version          = "2021.11.23.1048",
         description      = "kill blacklisted programs on high volatile memory usage",
         long_description = long_description(),
         url              = "https://github.com/wdbm/r245",
@@ -25,9 +25,7 @@ def main():
         zip_safe         = False
     )
 
-def long_description(
-    filename = "README.md"
-    ):
+def long_description(filename="README.md"):
     if os.path.isfile(os.path.expandvars(filename)):
         try:
             import pypandoc
